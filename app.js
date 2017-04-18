@@ -2,8 +2,12 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 
+import Tile from './routes/tile.route'
+
 const app = express()
 app.use(bodyParser.json())
+
+app.use('/', Tile)
 
 mongoose.connect('mongodb://mongo/kimochi')
 
