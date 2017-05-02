@@ -1,6 +1,4 @@
 import mongoose from 'mongoose'
-import q from 'q'
-mongoose.promise = q.Promise
 
 const tileSchema = new mongoose.Schema(
   {

@@ -1,10 +1,8 @@
-import express from 'express'
+import { Router } from 'express'
 import Healthy from '../controllers/healthy.controller'
 
-const router = express.Router()
+const router = new Router()
 
-router.get('/healthy', (req, res) => {
-  res.json(Healthy.healthy())
-})
+router.get('/healthy', Healthy.healthy)
 
 export default router

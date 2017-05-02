@@ -5,9 +5,10 @@ WORKDIR /app
 
 ADD package.json yarn.lock /app/
 RUN yarn --pure-lockfile
+RUN yarn global add nodemon
 
 COPY . /app
 
 EXPOSE 3000
 
-CMD yarn starts
+CMD yarn dev
