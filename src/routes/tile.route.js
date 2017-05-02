@@ -1,7 +1,7 @@
-import express from 'express'
+import { Router } from 'express'
 import Tile from '../controllers/tile.controller'
 
-const router = express.Router()
+const router = new Router()
 
 router.get('/tiles', Tile.getTiles)
 router.get('/tile/:tileID', Tile.getTile)

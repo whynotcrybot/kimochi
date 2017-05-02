@@ -3,15 +3,12 @@ import bodyParser from 'body-parser'
 
 import './config/database'
 import constants from './config/constants'
-
-import Healthy from './routes/healthy.route'
-import Tile from './routes/tile.route'
+import routes from './routes'
 
 const app = express()
 app.use(bodyParser.json())
 
-app.use('/', Healthy)
-app.use('/', Tile)
+app.use('/', routes)
 
 // http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
 if (!module.parent) {
