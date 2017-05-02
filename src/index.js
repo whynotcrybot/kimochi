@@ -1,12 +1,13 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 
 import './config/database'
+import middlewares from './config/middlewares'
 import constants from './config/constants'
 import routes from './routes'
 
 const app = express()
-app.use(bodyParser.json())
+
+middlewares(app)
 
 app.use('/', routes)
 
