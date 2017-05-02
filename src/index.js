@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import mongoose from 'mongoose'
+
+import './config/database'
+import constants from './config/constants'
 
 import Healthy from './routes/healthy.route'
 import Tile from './routes/tile.route'
@@ -11,8 +13,19 @@ app.use(bodyParser.json())
 app.use('/', Healthy)
 app.use('/', Tile)
 
-mongoose.connect('mongodb://mongo/kimochi')
+// http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
+if (!module.parent) {
+  app.listen(constants.PORT, err => {
+    if (err) console.error('Error occured')
+    else {
+      console.log(
+        `
+          Listening on port: ${constants.PORT}
+          Environment: ${process.env.NODE_ENV}
+        `,
+      )
+    }
+  })
+}
 
-app.listen(8090, () => {
-  console.log('Listening on 8090')
-})
+export default app
