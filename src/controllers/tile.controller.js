@@ -25,8 +25,8 @@ function getTile (req, res) {
     })
   }
 
-  Tile.get(tileID)
-    .then(tile => res.json(tile))
+  Tile.find({_id: tileID})
+    .then(tile => res.json(tile[0]))
     .catch(error => {
       console.error('Error:', error)
       res.json({error})
