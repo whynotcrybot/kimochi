@@ -5,7 +5,7 @@ import TileRoute from './tile.route'
 
 const router = new Router()
 
-router.use('/', HealthyRoute)
-router.use('/', TileRoute)
+router.use('/healthy', HealthyRoute)
+router.use('/tiles', TileRoute)
 
 export default router

@@ -34,7 +34,6 @@ function getTile (req, res) {
 }
 
 function createTile (req, res) {
-  console.log(req.body)
   const newTile = new Tile({
     name: req.body.name,
     color: req.body.color
