@@ -17,7 +17,7 @@ describe('GET ' + ENDPOINT, () => {
     testTile2 = await Tile.create(TileFactory.generate())
   })
 
-  describe('get single tile by its id', () => {
+  describe('Get single tile by its id', () => {
     it('should return single tile', done => {
       server
         .get(ENDPOINT + '/' + testTile._id)
@@ -35,7 +35,7 @@ describe('GET ' + ENDPOINT, () => {
     })
   })
 
-  describe('get all tiles', () => {
+  describe('Get all tiles', () => {
     it('should return a list of tiles', done => {
       server
         .get(ENDPOINT)
