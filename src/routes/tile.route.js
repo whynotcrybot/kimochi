@@ -3,9 +3,9 @@ import Tile from '../controllers/tile.controller'
 
 const router = new Router()
 
-router.get('/tiles', Tile.getTiles)
-router.get('/tile/:tileID', Tile.getTile)
-router.post('/tile', Tile.createTile)
-router.delete('/tile/:tileID', Tile.deleteTile)
+router.get('/', Tile.getTiles)
+router.get('/:tileID', Tile.getTile)
+router.post('/', Tile.createTile)
+router.delete('/:tileID', Tile.deleteTile)
 
 export default router
