@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import Tile from '../controllers/tile.controller'
+import * as Tile from '../controllers/tile.controller'
 
 const router = new Router()
 

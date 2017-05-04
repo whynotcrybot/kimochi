@@ -1,6 +1,6 @@
 import Tile from '../models/tile.model.js'
 
-function getTiles (req, res) {
+export function getTiles (req, res) {
   Tile.find()
     .lean()
     .then(blueprints => res.json(blueprints))
@@ -10,7 +10,7 @@ function getTiles (req, res) {
     })
 }
 
-function getTile (req, res) {
+export function getTile (req, res) {
   const tileID = req.params.tileID
 
   if (!tileID.match(/^[0-9a-fA-F]{24}$/)) {
@@ -33,7 +33,7 @@ function getTile (req, res) {
     })
 }
 
-function createTile (req, res) {
+export function createTile (req, res) {
   const newTile = new Tile({
     name: req.body.name,
     color: req.body.color
@@ -47,7 +47,7 @@ function createTile (req, res) {
   })
 }
 
-function deleteTile (req, res) {
+export function deleteTile (req, res) {
   const tileID = req.params.tileID
 
   if (!tileID.match(/^[0-9a-fA-F]{24}$/)) {
@@ -73,11 +73,4 @@ function deleteTile (req, res) {
     console.error('Error:', error)
     res.json({error})
   })
-}
-
-export default {
-  getTiles,
-  getTile,
-  createTile,
-  deleteTile
 }
