@@ -1,8 +1,15 @@
 import HTTPStatus from 'http-status'
 import Day from '../models/day.model.js'
 
-export function getDays (req, res) {
-
+export async function getDays (req, res, next) {
+  try {
+    return res
+      .status(HTTPStatus.OK)
+      .json(await Day.list())
+  } catch (err) {
+    err.status = HTTPStatus.BAD_REQUEST
+    return next(err)
+  }
 }
 
 export function getDay (req, res) {
