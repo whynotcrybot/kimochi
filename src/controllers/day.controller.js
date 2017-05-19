@@ -12,8 +12,15 @@ export async function getDays (req, res, next) {
   }
 }
 
-export function getDay (req, res) {
-
+export async function getDay (req, res, next) {
+  try {
+    return res
+      .status(HTTPStatus.OK)
+      .json(await Day.findByDate(req.params.date))
+  } catch (err) {
+    err.status = HTTPStatus.BAD_REQUEST
+    return next(err)
+  }
 }
 
 export async function createDay (req, res, next) {

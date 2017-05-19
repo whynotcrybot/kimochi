@@ -31,9 +31,10 @@ DaySchema.statics = {
       .populate('tile')
   },
 
-  findById (id) {
-    return this.find({ _id: id })
+  findByDate (date) {
+    return this.find({ date: new Date(date) })
       .populate('tile')
+      .then(days => days[0])
   }
 }
 

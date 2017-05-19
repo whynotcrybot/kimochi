@@ -32,25 +32,26 @@ describe('GET ' + ENDPOINT, () => {
     )
   })
 
-  // describe('Get single day by its id', () => {
-  //   it('should return single day', done => {
-  //     server
-  //       .get(ENDPOINT + '/' + testDay._id)
-  //       .end((err, res) => {
-  //         const { body, status } = res
-  //         expect(err).to.be.null
-  //         expect(status).to.equal(200)
-  //
-  //         expect(new Date(body.date).toString()).to.equal(new Date(testDay.date).toString())
-  //         expect(body.tile.name).to.equal(testTile.name)
-  //         expect(body.tile.color).to.equal(testTile.color)
-  //         expect(body.tile._id).to.equal(testTile._id.toString())
-  //         expect(body).to.haveOwnProperty('createdAt')
-  //         expect(body).to.haveOwnProperty('updatedAt')
-  //         done()
-  //       })
-  //   })
-  // })
+  describe('Get single day by its id', () => {
+    it('should return single day', done => {
+      server
+        .get(ENDPOINT + '/' + testDay.date)
+        .end((err, res) => {
+          const { body, status } = res
+
+          expect(err).to.be.null
+          expect(status).to.equal(200)
+
+          expect(new Date(body.date).toString()).to.equal(new Date(testDay.date).toString())
+          expect(body.tile.name).to.equal(testTile.name)
+          expect(body.tile.color).to.equal(testTile.color)
+          expect(body.tile._id).to.equal(testTile._id.toString())
+          expect(body).to.haveOwnProperty('createdAt')
+          expect(body).to.haveOwnProperty('updatedAt')
+          done()
+        })
+    })
+  })
 
   describe('Get all days', () => {
     it('should return a list of days', done => {
