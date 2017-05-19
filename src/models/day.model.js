@@ -10,13 +10,10 @@ const DaySchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Tile',
       required: true
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now
     }
   },
   {
+    timestamps: true,
     collection: 'days'
   }
 )
@@ -26,6 +23,17 @@ DaySchema.statics = {
     return this.create({
       ...args
     })
+  },
+
+  list () {
+    return this.find()
+      .sort({ date: -1 })
+      .populate('tile')
+  },
+
+  findById (id) {
+    return this.find({ _id: id })
+      .populate('tile')
   }
 }
 

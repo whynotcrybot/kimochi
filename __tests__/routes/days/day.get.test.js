@@ -59,8 +59,6 @@ describe('GET ' + ENDPOINT, () => {
         .end((err, res) => {
           const { body, status } = res
 
-          console.log(res)
-
           expect(status).to.equal(200)
           expect(err).to.be.null
           expect(body.length).to.equal(2)
