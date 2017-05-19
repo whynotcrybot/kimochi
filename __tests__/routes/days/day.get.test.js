@@ -32,17 +32,19 @@ describe('GET ' + ENDPOINT, () => {
     )
   })
 
-  // describe('Get single tile by its id', () => {
-  //   it('should return single tile', done => {
+  // describe('Get single day by its id', () => {
+  //   it('should return single day', done => {
   //     server
-  //       .get(ENDPOINT + '/' + testTile._id)
+  //       .get(ENDPOINT + '/' + testDay._id)
   //       .end((err, res) => {
   //         const { body, status } = res
   //         expect(err).to.be.null
   //         expect(status).to.equal(200)
-  //         expect(body.name).to.equal(testTile.name)
-  //         expect(body.color).to.equal(testTile.color)
-  //         expect(body._id).to.equal(testTile._id.toString())
+  //
+  //         expect(new Date(body.date).toString()).to.equal(new Date(testDay.date).toString())
+  //         expect(body.tile.name).to.equal(testTile.name)
+  //         expect(body.tile.color).to.equal(testTile.color)
+  //         expect(body.tile._id).to.equal(testTile._id.toString())
   //         expect(body).to.haveOwnProperty('createdAt')
   //         expect(body).to.haveOwnProperty('updatedAt')
   //         done()
@@ -56,6 +58,8 @@ describe('GET ' + ENDPOINT, () => {
         .get(ENDPOINT)
         .end((err, res) => {
           const { body, status } = res
+
+          console.log(res)
 
           expect(status).to.equal(200)
           expect(err).to.be.null
