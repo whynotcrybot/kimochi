@@ -1,0 +1,40 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:latest
+    volumes:
+      - /srv/docker/mongodb:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+ # mongoclient:
+ #   image: mongoclient/mongoclient:latest
+ #   depends_on:
+ #     - mongo
+ #   ports:
+ #     - "3000:3000"
+ #   environment:
+ #     - MONGO_URL=mongodb://mongo:27017
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+    command: yarn dev
+    env_file:
+      - ./kimochi-server/.env
+    environment:
+      - MONGO_URL_DEV=mongodb://mongo/kimochi
+  # client:
+  #   build: ./client
+  #   volumes:
+  #     - ./client:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - "8080:8080"
