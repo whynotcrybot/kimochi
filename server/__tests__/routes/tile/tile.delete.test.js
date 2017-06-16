@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 import server from '../../../__mocks__/utils/server.mock'
-import Tile from '../../../src/models/tile.model'
+import Tile from '../../../source/models/tile.model'
 import TileFactory from '../../../__mocks__/factories/tile.factory'
 
 const ENDPOINT = '/tiles'
