@@ -32,9 +32,12 @@ DaySchema.statics = {
   },
 
   findByDate (date) {
-    return this.find({ date: new Date(date) })
+    return this.findOne({ date: new Date(date) })
       .populate('tile')
-      .then(days => days[0])
+  },
+
+  removeByDate (date) {
+    return this.findOneAndRemove({ date: new Date(date) })
   }
 }
 

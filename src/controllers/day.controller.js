@@ -34,6 +34,12 @@ export async function createDay (req, res, next) {
   }
 }
 
-export function deleteDay (req, res) {
-
+export async function deleteDay (req, res, next) {
+  try {
+    await Day.removeByDate(req.params.date)
+    return res.sendStatus(HTTPStatus.OK)
+  } catch (err) {
+    err.status = HTTPStatus.BAD_REQUEST
+    return next(err)
+  }
 }
