@@ -7,7 +7,7 @@
     "build": "yarn run clean && cross-env NODE_ENV=production babel --out-dir=dist ./src",
     "clean": "rimraf dist",
     "start": "yarn build && cross-env NODE_ENV=production node dist",
-    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./source",
     "test": "cross-env NODE_ENV=test mocha $(find __tests__ -name '*.test.js') --colors --compilers js:babel-register",
     "test:watch": "cross-env NODE_ENV=test mocha $(find __tests__ -name '*.test.js') --colors --compilers js:babel-register -w"
   },
