@@ -28,7 +28,7 @@ services:
       - "3000:3000"
     command: yarn dev
     env_file:
-      - ./kimochi-server/.env
+      - ./server/.env
     environment:
       - MONGO_URL_DEV=mongodb://mongo/kimochi
   # client:
