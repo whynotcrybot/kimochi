@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whynotcrybot/kimochi-server.git"
+    "url": "git+https://github.com/whynotcrybot/kimochi.git"
   },
   "author": "Cry",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/whynotcrybot/kimochi-server/issues"
+    "url": "https://github.com/whynotcrybot/kimochi/issues"
   },
-  "homepage": "https://github.com/whynotcrybot/kimochi-server#readme",
+  "homepage": "https://github.com/whynotcrybot/kimochi#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
