@@ -25,16 +25,21 @@ services:
     depends_on:
       - mongo
     ports:
-      - "3000:3000"
+      - "8080:3000"
     command: yarn dev
     env_file:
       - ./server/.env
     environment:
       - MONGO_URL_DEV=mongodb://mongo/kimochi
-  # client:
-  #   build: ./client
-  #   volumes:
-  #     - ./client:/app
-  #     - /app/node_modules
-  #   ports:
-  #     - "8080:8080"
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    command: yarn dev
