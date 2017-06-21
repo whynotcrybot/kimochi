@@ -1,7 +1,3 @@
-function healthy (req, res) {
+export function isHealthy (req, res) {
   res.json({message: 'OK'})
-}
-
-export default {
-  healthy
 }
