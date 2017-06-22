@@ -1,6 +1,7 @@
+const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
-const path = require('path')
+const StatsPlugin = require('stats-webpack-plugin')
 
 module.exports = {
   target: 'node',
@@ -29,6 +30,10 @@ module.exports = {
       output: {
         comments: false
       }
+    }),
+    new StatsPlugin('stats.json', {
+      chunkModules: true,
+      exclude: /node_modules/
     })
   ],
   module: {
