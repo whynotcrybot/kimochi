@@ -1,5 +1,7 @@
-const nodeExternals = require('webpack-node-externals')
 const path = require('path')
+const webpack = require('webpack')
+const nodeExternals = require('webpack-node-externals')
+const StatsPlugin = require('stats-webpack-plugin')
 
 module.exports = {
   target: 'node',
@@ -12,6 +14,29 @@ module.exports = {
     filename: '[name].bundle.js',
     libraryTarget: 'commonjs2'
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true
+      },
+      output: {
+        comments: false
+      }
+    }),
+    new StatsPlugin('stats.json', {
+      chunkModules: true,
+      exclude: /node_modules/
+    })
+  ],
   module: {
     rules: [
       {
