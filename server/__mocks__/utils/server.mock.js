@@ -1,6 +1,6 @@
 import supertest from 'supertest'
 
-import server from '../../source'
-import '../../source/config/database'
+import server from '../../src'
+import '../../src/config/database'
 
 export default supertest(server)
