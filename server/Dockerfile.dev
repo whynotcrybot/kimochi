@@ -1,21 +1,10 @@
-FROM node:7.10.0-alpine
+FROM node:alpine
 
-MAINTAINER Alex Katsero <alexanderkatsero@gmail.com> <https://github.com/whynotcrybot>
-
-# create app directory in container and set to be default
 RUN mkdir -p /app
 WORKDIR /app
 
 ADD package.json yarn.lock /app/
-
 RUN yarn --pure-lockfile
 
-RUN yarn add nodemon
-
-COPY . /app
-
-EXPOSE 3000
-
-# cmd to start service
 CMD ["yarn", "dev"]
 

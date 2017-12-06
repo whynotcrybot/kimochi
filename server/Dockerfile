@@ -1,6 +1,4 @@
-FROM node:7.10.0-alpine
-
-MAINTAINER Alex Katsero <alexanderkatsero@gmail.com> <https://github.com/whynotcrybot>
+FROM node:alpine
 
 # create app directory in container and set to be default
 RUN mkdir -p /app
