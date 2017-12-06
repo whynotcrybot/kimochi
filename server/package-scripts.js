@@ -33,7 +33,7 @@ module.exports = {
       }
     },
     test: {
-      default: `${crossEnv('NODE_ENV=test')} mocha $(find __tests__ -name *.test.js) --colors --compilers js:babel-register`,
+      default: `${crossEnv('NODE_ENV=test')} mocha $(find __tests__ -name *.test.js) --exit --colors --compilers js:babel-register`,
       watch: series.nps('test -w')
     }
   }
