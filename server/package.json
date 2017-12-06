@@ -10,28 +10,17 @@
     "test": "nps test",
     "test:watch": "nps test.watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/whynotcrybot/kimochi.git"
-  },
   "author": "Cry",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/whynotcrybot/kimochi/issues"
-  },
-  "homepage": "https://github.com/whynotcrybot/kimochi#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "compression": "^1.6.2",
     "cors": "^2.8.3",
     "cross-env": "^5.0.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-winston": "^2.4.0",
     "faker": "^4.1.0",
-    "helmet": "^3.5.0",
     "http-status": "^1.0.1",
-    "method-override": "^2.3.8",
     "mongoose": "^4.9.3",
     "rimraf": "^2.6.1",
     "winston": "^2.3.1"
@@ -42,15 +31,14 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "chai": "^4.0.2",
-    "express-status-monitor": "^0.1.9",
     "morgan": "^1.8.1",
     "nodemon": "^1.12.5",
     "nps": "^5.3.2",
     "nps-utils": "^1.2.0",
-    "stats-webpack-plugin": "^0.6.1",
     "supertest": "^3.0.0",
-    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.1.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-messages": "^1.0.1",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-source-map-support": "^2.0.1"
   }
 }

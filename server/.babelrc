@@ -4,18 +4,10 @@
       "env",
       {
         "targets": {
-          "node": "6.10",
-          "uglify": true
+          "node": "current"
         }
       }
     ]
   ],
-  "plugins": [
-    [
-      "transform-object-rest-spread",
-      {
-        "useBuiltIns": true
-      }
-    ]
-  ]
+  "plugins": ["transform-object-rest-spread"]
 }
