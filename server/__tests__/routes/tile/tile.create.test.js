@@ -12,7 +12,6 @@ let testTile
 describe(`POST ${ENDPOINT}`, () => {
   before(async () => {
     await Tile.remove()
-    testTile = await Tile.create(TileFactory.generate())
   })
 
   beforeEach(() => {
