@@ -6,7 +6,6 @@ import constants from './config/constants'
 import routes from './routes'
 
 const app = express()
-
 middlewares(app)
 
 app.use('/', routes)
